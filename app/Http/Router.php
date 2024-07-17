@@ -2,6 +2,8 @@
 
 namespace App\Http;
 
+use App\Controller\Pages\Page;
+use App\Utils\View;
 use Closure;
 use Exception;
 use ReflectionFunction;
@@ -118,16 +120,14 @@ class Router
             // print_r($route);
             // echo "</pre>";
             // exit;
-            if (!isset($route['controller']))
-            {
+            if (!isset($route['controller'])) {
                 throw new Exception("The current URL could not be processed.", 500);
             }
 
             $args = [];
 
             $reflection = new ReflectionFunction($route['controller']);
-            foreach ($reflection->getParameters() as $parameter)
-            {
+            foreach ($reflection->getParameters() as $parameter) {
                 $name = $parameter->getName();
                 $args[$name] = $route['variables'][$name] ?? '';
             }
