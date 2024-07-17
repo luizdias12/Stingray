@@ -2,8 +2,6 @@
 
 namespace App\Http;
 
-use App\Controller\Pages\Page;
-use App\Utils\View;
 use Closure;
 use Exception;
 use ReflectionFunction;
