@@ -11,6 +11,6 @@ View::init([
     'URL' => URL
 ]);
 
-$obRouter = new Router(URL);
+$router = new Router(URL);
 include __DIR__.'/routes/pages.php';
-$obRouter->run()->sendResponse();
+$router->run()->sendResponse();

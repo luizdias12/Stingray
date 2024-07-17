@@ -89,10 +89,10 @@ class Router
         foreach ($this->routes as $patternRoute => $methods) {
             if (preg_match($patternRoute, $uri, $matches)) {
                 // echo "<pre>";
-                // print_r(array_keys($methods)[0]);
+                // print_r($matches);
                 // echo "</pre>";
                 // exit;
-                if (array_key_exists($httpMethod, $methods)) {
+                if (isset($httpMethod, $methods)) {
 
                     unset($matches[0]);
 
@@ -118,20 +118,22 @@ class Router
             // print_r($route);
             // echo "</pre>";
             // exit;
-            if (!isset($route['controller'])) {
+            if (!isset($route['controller']))
+            {
                 throw new Exception("The current URL could not be processed.", 500);
             }
 
             $args = [];
 
             $reflection = new ReflectionFunction($route['controller']);
-            foreach ($reflection->getParameters() as $parameter) {
+            foreach ($reflection->getParameters() as $parameter)
+            {
                 $name = $parameter->getName();
                 $args[$name] = $route['variables'][$name] ?? '';
             }
 
             // echo "<pre>";
-            // print_r($args);
+            // print_r($route['variables'][$name]);
             // echo "</pre>";
             // exit;
 

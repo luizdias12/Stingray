@@ -1,2 +1,3 @@
 resources/assets/fontawesome-6.5.2/
 vendor/
+.env
