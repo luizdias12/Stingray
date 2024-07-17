@@ -14,3 +14,5 @@ View::init([
 $router = new Router(URL);
 include __DIR__.'/routes/pages.php';
 $router->run()->sendResponse();
+
+// This is a commentary
