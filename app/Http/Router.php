@@ -120,7 +120,7 @@ class Router
                 // print_r($matches);
                 // echo "</pre>";
                 // exit;
-                if (isset($httpMethod, $methods)) {
+                if (array_key_exists($httpMethod, $methods)) {
 
                     unset($matches[0]);
 
