@@ -8,12 +8,40 @@ use ReflectionFunction;
 
 class Router
 {
-
+    
+    /**
+     * raiz do projeto
+     *
+     * @var string
+     */
     private $url = '';
+        
+    /**
+     * prefixo da URL da rota
+     *
+     * @var string
+     */
     private $prefix = '';
-    private $routes = [];
-    private $request;
+        
+    /**
+     * armazena as rotas
+     *
+     * @var array
+     */
+    private $routes = [];    
 
+    /**
+     * instancia de Request
+     *
+     * @var Request
+     */
+    private $request;
+    
+    /**
+     * metodo construtor
+     *
+     * @param  string $url
+     */
     public function __construct($url)
     {
         $this->request = new Request();
