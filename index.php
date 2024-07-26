@@ -1,20 +1,10 @@
 <?php
 
-require __DIR__."/vendor/autoload.php";
-require __DIR__."/resources/functions/functions.php";
+require __DIR__.'/includes/app.php';
 
 use App\Http\Router;
-use App\Utils\View;
 
+$router = new Router(URL);
+include __DIR__.'/routes/pages.php';
+$router->run()->sendResponse();
 
-define('URL', 'http://localhost/Stingray');
-
-View::init([
-    'URL' => URL
-]);
-
-// $router = new Router(URL);
-// include __DIR__.'/routes/pages.php';
-// $router->run()->sendResponse();
-
-// This is a commentary

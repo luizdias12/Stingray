@@ -15,8 +15,8 @@ $router->get('/about',[
     }
 ]);
 
-$router->get('/produto/{idPagina}/{acao}',[
-    function($idPagina, $acao){
-        return new Response(200,'Produto ' . $idPagina . ' - ' . $acao);
+$router->get('/helpdesk',[
+    function(){
+        return new Response(200,Pages\Helpdesk::getHelpdesks());
     }
 ]);
